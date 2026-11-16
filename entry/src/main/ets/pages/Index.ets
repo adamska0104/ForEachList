@@ -1,23 +1,55 @@
+import { ForEachListPage } from "./ForEachListPage";
+// import { LazyForEachListPage } from './LazyForEachListPage'
+
 @Entry
 @Component
 struct Index {
-  @State message: string = 'Hello World';
+  @Provide('NavPathStack') pageStack: NavPathStack = new NavPathStack()
+
+  testLog(message: string) {
+    // console.log(message, arguments)
+  }
+
+  @Builder
+  PagesMap(name: string, param: object) {
+    NavDestination() {
+      if (name === 'ForEachListPage') {
+        ForEachListPage()
+      
+      } else if (name === 'LazyForEachListPage') {
+        // LazyForEachListPage()
+      }
+    }
+    .hideTitleBar(true)
+  }
 
   build() {
-    RelativeContainer() {
-      Text(this.message)
-        .id('HelloWorld')
-        .fontSize($r('app.float.page_text_font_size'))
-        .fontWeight(FontWeight.Bold)
-        .alignRules({
-          center: { anchor: '__container__', align: VerticalAlign.Center },
-          middle: { anchor: '__container__', align: HorizontalAlign.Center }
-        })
-        .onClick(() => {
-          this.message = 'Welcome';
-        })
+    Navigation(this.pageStack) {
+      Row() {
+        Column() {
+          Button('ForEach')
+            .width(200)
+            .margin(10)
+            .onClick(() => {
+              this.pageStack.pushPathByName('ForEachListPage', '')
+            })
+          Button('LazyForEach')
+            .width(200)
+            .margin(10)
+            .onClick(() => {
+              this.pageStack.pushPathByName('LazyForEachListPage', '')
+            })
+        }
+        .width('100%')
+        // .backgroundColor(Color.Green)
+
+      }
+      .height('100%')
+      // .backgroundColor(Color.Red)
     }
-    .height('100%')
-    .width('100%')
+    .hideTitleBar(true)
+    .mode(NavigationMode.Stack)
+    .navDestination(this.PagesMap)
   }
 }
+

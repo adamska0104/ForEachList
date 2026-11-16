@@ -10,7 +10,19 @@
     },
     {
       "name": "EntryAbility_label",
-      "value": "label"
+      "value": "ForEachList~~"
+    },
+    {
+      "name": "foreach",
+      "value": "ForEach"
+    },
+    {
+      "name": "lazy_foreach",
+      "value": "LazyForEach"
+    },
+    {
+      "name": "reason_internet",
+      "value": "Allow the app to use the Internet network when obtaining list information"
     }
   ]
 }
