@@ -1,7 +1,7 @@
 import { common } from '@kit.AbilityKit';
 import { LearningResource } from '../model/LearningResource';
 import { ObservedArray } from '../utils/ObservedArray';
-import { ArticleCardView } from '../constants/ArticleCardView';
+import { ArticleCardView } from '../components/ArticleCardView';
 import Constants  from '../constants/Constants';
 import { util } from '@kit.ArkTS';
 import { BusinessError } from '@kit.BasicServicesKit';
