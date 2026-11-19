@@ -1,14 +1,14 @@
 import { ForEachListPage } from "./ForEachListPage";
-// import { LazyForEachListPage } from './LazyForEachListPage'
+import { LazyForEachListPage } from './LazyForEachListPage';
 
 @Entry
 @Component
 struct Index {
   @Provide('NavPathStack') pageStack: NavPathStack = new NavPathStack()
 
-  testLog(message: string) {
-    // console.log(message, arguments)
-  }
+  // testLog(message: string) {
+  //   // console.log(message, arguments)
+  // }
 
   @Builder
   PagesMap(name: string, param: object) {
@@ -17,7 +17,7 @@ struct Index {
         ForEachListPage()
       
       } else if (name === 'LazyForEachListPage') {
-        // LazyForEachListPage()
+        LazyForEachListPage()
       }
     }
     .hideTitleBar(true)

@@ -44,7 +44,7 @@ export struct ForEachListPage {
       jsonObj.forEach((res: LearningResource) => {
         resources.push(res);
       });
-      this.articleList = resources
+      this.articleList = resources;
     }).catch((err: BusinessError) => {
       hilog.error(0xFF00, 'ForEachList', `getArticleModelObjFromJSON fail, code = ${err.code}, message = ${err.message}`);
     })
